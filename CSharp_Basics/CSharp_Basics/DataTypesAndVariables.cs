@@ -152,10 +152,10 @@ namespace CSharp_Basics
         //        /// Display them - you can do it Console.WriteLine(yourVariable);
         //        /// Try to explain what happened.
         //        /// </summary>
-        public void default_values()
+        public void Default_Values()
         {
-            int i;
-            var x = 5.0m;
+            ////int i;
+            ////var x = 5.0m;
             char a = '1';
             string z = "asjfkfjsjglsjgs";
             a = z[2];

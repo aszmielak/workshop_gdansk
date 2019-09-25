@@ -19,11 +19,11 @@ namespace CSharp_Basics
         [Test]
         public void Bascis_Of_Strings()
         {
-            string Example = "i jego string";
-            string Imie = "Adam";
-            string PolaczonyString =  Imie + " " + Example;
-            Assert.AreEqual("Adam i jego string", PolaczonyString, "git?");
-            Console.WriteLine(PolaczonyString);
+            string example = "i jego string";
+            string imie = "Adam";
+            string polaczonyString = imie + " " + example;
+            Assert.AreEqual("Adam i jego string", polaczonyString, "git?");
+            Console.WriteLine(polaczonyString);
         }
 
         //        /// <summary>
@@ -50,14 +50,14 @@ namespace CSharp_Basics
             string first = "pancakes.";
             string second = "I like";
 
-            string result = string.Concat(second+" "+first);
+            string result = string.Concat(second + " " + first);
             Assert.AreEqual(result, "I like pancakes.");
         }
-        //        /// <summary>
-        //        /// There is few more ways of constructing strings for example if you need add values of other variables inside you can do
-        //        /// https://docs.microsoft.com/en-us/dotnet/api/system.string.format?view=netframework-4.7.1#Starting
-        //        /// create string with both x and y insed
-        //        /// </summary>
+        ////     /// <summary>
+        ////     /// There is few more ways of constructing strings for example if you need add values of other variables inside you can do
+        ////     /// https://docs.microsoft.com/en-us/dotnet/api/system.string.format?view=netframework-4.7.1#Starting
+        ////     /// create string with both x and y insed
+        ////     /// </summary>
         [Test]
         public void String_Format()
         {
