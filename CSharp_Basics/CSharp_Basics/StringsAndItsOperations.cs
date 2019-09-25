@@ -50,7 +50,7 @@ namespace CSharp_Basics
             string first = "pancakes.";
             string second = "I like";
 
-            string result = second + " " + first;
+            string result = string.Concat(second+" "+first);
             Assert.AreEqual(result, "I like pancakes.");
         }
         //        /// <summary>
@@ -58,28 +58,32 @@ namespace CSharp_Basics
         //        /// https://docs.microsoft.com/en-us/dotnet/api/system.string.format?view=netframework-4.7.1#Starting
         //        /// create string with both x and y insed
         //        /// </summary>
-        //        [Test]
-        //        public void String_Format()
-        //        {
-        //            int x = 500;
-        //            int y = 453;
-        //            string result;
-        //
-        //            StringAssert.Contains(result, x.ToString());
-        //            StringAssert.Contains(result, y.ToString());
-        //        }
+        [Test]
+        public void String_Format()
+        {
+            int x = 500;
+            int y = 456;
+            string result = $"x to jest = {x}, a y rowna sie = {y}";
+            ////string result = String.Format("x to jest = {0}, a y rowna sie = {1}", x, y);
+
+            StringAssert.Contains(x.ToString(), result);
+            StringAssert.Contains(y.ToString(), result);
+        }
 
         //        /// <summary>
         //        /// From theString return word "thing".
         //        /// hint use Substring() method
         //        /// </summary>
-        //        [Test]
-        //        public void Substrings()
-        //        {
-        //            var theString =
-        //                "The interesting thing about London is that there are always stylish surprises around every corner.";
-        //
-        //            Assert.AreEqual(result,"thing");
-        //        }
+        [Test]
+        public void Substrings()
+        {
+            var theString =
+                "The interesting thing about London is that there are always stylish surprises around every corner.";
+
+            var result = theString.Substring(16, 5);
+
+            Assert.AreEqual(result, "thing");
+            Console.WriteLine(result);
+        }
     }
 }
