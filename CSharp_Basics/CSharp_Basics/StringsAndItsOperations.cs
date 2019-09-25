@@ -84,6 +84,9 @@ namespace CSharp_Basics
 
             Assert.AreEqual(result, "thing");
             Console.WriteLine(result);
+            var resultArray = theString.Split(' ');
+            var result1 = resultArray[2];
+            Assert.AreEqual(result1, "thing");
         }
     }
 }
