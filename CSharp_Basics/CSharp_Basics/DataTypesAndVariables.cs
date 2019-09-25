@@ -114,7 +114,7 @@ namespace CSharp_Basics
             bool notTruth = false;
 
             Assert.True(truth);
-            Assert.True(notTruth);
+            Assert.False(notTruth);
         }
 
         //            /// <summary>
