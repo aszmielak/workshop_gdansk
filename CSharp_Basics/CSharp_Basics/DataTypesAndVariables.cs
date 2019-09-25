@@ -47,7 +47,6 @@ namespace CSharp_Basics
             Assert.AreEqual(number, 14, "Example Has wrong value did you changed it?");
             Assert.That(singleDigit, Is.TypeOf<int>(), "You sure it is int?");
             Assert.AreEqual(lessThanZero, -100, "Example Has wrong value did you changed it?");
-            Assert.That(singleDigit, Is.TypeOf<int>(), "you sure it is int?");
         }
 
         //        /// <summary>
