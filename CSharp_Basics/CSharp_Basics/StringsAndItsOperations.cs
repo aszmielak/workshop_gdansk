@@ -16,11 +16,15 @@ namespace CSharp_Basics
         //        /// 
         //        /// Create new string with your name and then add them together
         //        /// </summary>
-        //        [Test]
-        //        public void Bascis_Of_Strings()
-        //        {
-        //            string Example = "This is example string";
-        //        }
+        [Test]
+        public void Bascis_Of_Strings()
+        {
+            string Example = "i jego string";
+            string Imie = "Adam";
+            string PolaczonyString =  Imie + " " + Example;
+            Assert.AreEqual("Adam i jego string", PolaczonyString, "git?");
+            Console.WriteLine(PolaczonyString);
+        }
 
         //        /// <summary>
         //        ///  string is  first Reference Type you see (We will talk more about them later)
@@ -28,27 +32,27 @@ namespace CSharp_Basics
         //        ///  use string.Empty;
         //        ///  create new strings itsEmpty and make it empty
         //        /// </summary>
-        //        [Test]
-        //        public void String_Initialization()
-        //        {
-
-        //            Assert.That(itsEmpty, Is.Not.Null);
-        //        }
+        [Test]
+        public void String_Initialization()
+        {
+            string itsEmpty = string.Empty;
+            Assert.That(itsEmpty, Is.Not.Null);
+        }
 
         //        /// <summary>
         //        /// + is not best way of adding string
         //        ///  use string.Concat();
         //        ///  put sentence together
         //        /// </summary>
-        //        [Test]
-        //        public void Adding_String()
-        //        {
-        //            string first = "pancakes.";
-        //            string second = "I like";
-        //
-        //            Assert.AreEqual(result, "I like pancakes.");
-        //        }
+        [Test]
+        public void Adding_String()
+        {
+            string first = "pancakes.";
+            string second = "I like";
 
+            string result = second + " " + first;
+            Assert.AreEqual(result, "I like pancakes.");
+        }
         //        /// <summary>
         //        /// There is few more ways of constructing strings for example if you need add values of other variables inside you can do
         //        /// https://docs.microsoft.com/en-us/dotnet/api/system.string.format?view=netframework-4.7.1#Starting
