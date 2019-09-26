@@ -37,19 +37,24 @@ namespace Kalkulator
                 result = Add(parsedNumberOne, parsedNumberTwo);
             }
 
-            if (operation == "-")
+            else if (operation == "-")
             {
                 result = Subtract(parsedNumberOne, parsedNumberTwo);
             }
 
-            if (operation == "*")
+            else if (operation == "*")
             {
                 result = Multiply(parsedNumberOne, parsedNumberTwo);
             }
 
-            if (operation == "/")
+            else if (operation == "/")
             {
                 result = Divide(parsedNumberOne, parsedNumberTwo);
+            }
+
+            else
+            {
+                Console.WriteLine("Podaj poprawny znak!");
             }
 
             Console.WriteLine($"Wynik działania to: {result}");
