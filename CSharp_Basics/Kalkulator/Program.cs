@@ -19,23 +19,8 @@ namespace Kalkulator
         {
             Console.WriteLine("Calc");
 
-            Console.WriteLine("Wprowadź liczbę a: ");
-            string numberOne = Console.ReadLine();
-            int parsedNumberOne = 0;
-            if (!int.TryParse(numberOne, out parsedNumberOne))
-            {
-                Console.WriteLine($"Nie znana wartość, używamy wartości domyślnej {parsedNumberOne}");
-            }
-            ////int parsedNumberOne = int.Parse(numberOne);
-
-            Console.WriteLine("Wprowadź liczbę b: ");
-            string numberTwo = Console.ReadLine();
-            int parsedNumberTwo = 0;
-            if (!int.TryParse(numberTwo, out parsedNumberTwo))
-            {
-                Console.WriteLine($"Nie znana wartość, używamy wartości domyślnej {parsedNumberTwo}");
-            }
-            ////int parsedNumberTwo = int.Parse(numberTwo);
+            int parsedNumberOne = GetValueFromUser("Wprowadź liczbę a: ");
+            int parsedNumberTwo = GetValueFromUser("Wprowadź liczbę b: ");
 
             Console.WriteLine("Wprowadź symbol: ");
             string operation = Console.ReadLine();
@@ -68,38 +53,22 @@ namespace Kalkulator
                     break;
             }
 
-            ////if (operation == "+")
-            ////{
-            ////    result = Add(parsedNumberOne, parsedNumberTwo);
-            ////}
-
-            ////else if (operation == "-")
-            ////{
-            ////    result = Subtract(parsedNumberOne, parsedNumberTwo);
-            ////}
-
-            ////else if (operation == "*")
-            ////{
-            ////    result = Multiply(parsedNumberOne, parsedNumberTwo);
-            ////}
-
-            ////else if (operation == "/")
-            ////{
-            ////    result = Divide(parsedNumberOne, parsedNumberTwo);
-            ////}
-
-            ////else
-            ////{
-            ////    Console.WriteLine("Podaj poprawny znak!");
-            ////}
-
             Console.WriteLine($"Wynik działania to: {result}");
             Console.WriteLine("Kliknij dowolny przycisk, aby zakończyć...");
             Console.ReadKey();
 
-            ////Console.WriteLine("Wprowadź znak działania: ");
-            ////string sign = Console.ReadLine();
-            ////Console.ReadKey();
+        }
+
+        public static int GetValueFromUser(string message)
+        {
+            Console.WriteLine(message);
+            string number = Console.ReadLine();
+            int parsedNumber = 0;
+            if (!int.TryParse(number, out parsedNumber))
+            {
+                Console.WriteLine($"Nie znana wartość, używamy wartości domyślnej {parsedNumber}");
+            }
+            return parsedNumber;
         }
 
         /// <summary>
