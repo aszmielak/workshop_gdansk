@@ -18,46 +18,16 @@ namespace Kalkulator
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            while (!ValueInterface.Quit)
+            while (true)
             {
-                Console.WriteLine("Calc");
-                int parsedNumberOne = ValueInterface.GetValueFromUser("Wprowadź liczbę a: ");
-                if (ValueInterface.Quit)
-                {
-                    Console.WriteLine("Zamykam aplikację.");
-                    Console.ReadKey();
-                    return;
-                }
+                MathData mathData = ValueInterface.GetAllValuesFromCustomer();
 
-                int parsedNumberTwo = ValueInterface.GetValueFromUser("Wprowadź liczbę b: ");
-                if (ValueInterface.Quit)
-                {
-                    Console.WriteLine("Zamykam aplikację.");
-                    Console.ReadKey();
-                    return;
-                }
-
-                string operation = ValueInterface.GetOperation();
-                if (ValueInterface.Quit)
-                {
-                    Console.WriteLine("Zamykam aplikację.");
-                    ////Console.ReadKey();
-                    Thread.Sleep(1500);
-                    return;
-                }
-                double finalResult = Calculations.GetResultValue(parsedNumberOne, parsedNumberTwo, operation);
+                double finalResult = Calculations.GetResultValue(mathData);
 
                 Console.WriteLine($"Wynik działania to: {finalResult}");
                 Console.WriteLine("Kliknij przycisk Q, aby zakończyć...");
                 string closingOperation = Console.ReadLine();
 
-                if (ValueInterface.Quit) 
-                {
-                    Console.WriteLine("Zamykam aplikację.");
-                    ////Console.ReadKey();
-                    Thread.Sleep(1500);
-                    return;
-                }
             }
         }
     }

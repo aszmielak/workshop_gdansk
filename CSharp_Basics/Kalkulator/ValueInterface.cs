@@ -8,7 +8,23 @@ namespace Kalkulator
 {
     public static class ValueInterface
     {
-        public static bool Quit;
+        public static void Quit()
+        {
+            Console.WriteLine("Zamykam aplikację! quit!");
+            Console.ReadKey();
+            Environment.Exit(0);
+        }
+
+        
+
+        public static MathData GetAllValuesFromCustomer()
+        {
+            int firstValue = GetValueFromUser("Wprowadź liczbę a: ");
+            int secondValue = GetValueFromUser("Wprowadź liczbę b: ");
+            string operation = GetOperation();
+
+            return new MathData(firstValue, secondValue, operation);
+        }
 
         public static int GetValueFromUser(string message)
         {
@@ -20,14 +36,14 @@ namespace Kalkulator
                 string valueFromUser = Console.ReadLine();
                 if (valueFromUser == "q")
                 {
-                    Quit = true;
+                    Quit();
                     return 0;
                 }
 
                 parsed = int.TryParse(valueFromUser, out parsedValueFromUser);
                 if (!parsed)
                 {
-                    message = ($"Podana wartość - {valueFromUser} - jest niepoprawna, podaj poprawną:");
+                    message = $"Podana wartość - {valueFromUser} - jest niepoprawna, podaj poprawną:";
                 }
             }
 
@@ -40,9 +56,10 @@ namespace Kalkulator
             string operation = Console.ReadLine();
             if (operation == "q")
             {
-                Quit = true;
+                Quit();
                 return string.Empty;
             }
+
             return operation;
         }
     }

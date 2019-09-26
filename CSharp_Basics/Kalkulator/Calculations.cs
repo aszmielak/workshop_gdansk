@@ -9,32 +9,30 @@ namespace Kalkulator
     public static class Calculations
     {
         /// <summary>
-        /// Method doing all the math
+        /// Data saving math method using custom dataMath object
         /// </summary>
-        /// <param name="numberOne"></param>
-        /// <param name="numberTwo"></param>
-        /// <param name="operation"></param>
+        /// <param name="mathData"></param>
         /// <returns></returns>
-        public static double GetResultValue(int numberOne, int numberTwo, string operation)
+        public static double GetResultValue(MathData mathData)
         {
             double result = 0;
 
-            switch (operation)
+            switch (mathData.Operation)
             {
                 case "+":
-                    result = Add(numberOne, numberTwo);
+                    result = Add(mathData.FirstValue, mathData.SecondValue);
                     break;
                 case "-":
-                    result = Subtract(numberOne, numberTwo);
+                    result = Subtract(mathData.FirstValue, mathData.SecondValue);
                     break;
                 case "x":
                 case "*":
-                    result = Multiply(numberOne, numberTwo);
+                    result = Multiply(mathData.FirstValue, mathData.SecondValue);
                     break;
                 case "/":
-                    if (numberTwo != 0)
+                    if (mathData.SecondValue != 0)
                     {
-                        result = Divide(numberOne, numberTwo);
+                        result = Divide(mathData.FirstValue, mathData.SecondValue);
                         break;
                     }
                     else
