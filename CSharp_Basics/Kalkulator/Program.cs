@@ -21,11 +21,21 @@ namespace Kalkulator
 
             Console.WriteLine("Wprowadź liczbę a: ");
             string numberOne = Console.ReadLine();
-            int parsedNumberOne = int.Parse(numberOne);
+            int parsedNumberOne = 0;
+            if (!int.TryParse(numberOne, out parsedNumberOne))
+            {
+                Console.WriteLine($"Nie znana wartość, używamy wartości domyślnej {parsedNumberOne}");
+            }
+            ////int parsedNumberOne = int.Parse(numberOne);
 
             Console.WriteLine("Wprowadź liczbę b: ");
             string numberTwo = Console.ReadLine();
-            int parsedNumberTwo = int.Parse(numberTwo);
+            int parsedNumberTwo = 0;
+            if (!int.TryParse(numberTwo, out parsedNumberTwo))
+            {
+                Console.WriteLine($"Nie znana wartość, używamy wartości domyślnej {parsedNumberTwo}");
+            }
+            ////int parsedNumberTwo = int.Parse(numberTwo);
 
             Console.WriteLine("Wprowadź symbol: ");
             string operation = Console.ReadLine();
