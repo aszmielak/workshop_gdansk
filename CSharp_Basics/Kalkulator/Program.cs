@@ -32,30 +32,49 @@ namespace Kalkulator
 
             double result = 0;
 
-            if (operation == "+")
+            switch (operation)
             {
-                result = Add(parsedNumberOne, parsedNumberTwo);
+                case "+":
+                    result = Add(parsedNumberOne, parsedNumberTwo);
+                    break;
+                case "-":
+                    result = Subtract(parsedNumberOne, parsedNumberTwo);
+                    break;
+                case "*":
+                    result = Multiply(parsedNumberOne, parsedNumberTwo);
+                    break;
+                case "/":
+                    result = Divide(parsedNumberOne, parsedNumberTwo);
+                    break;
+                default:
+                    Console.WriteLine("Podaj poprawny znak!");
+                    break;
             }
 
-            else if (operation == "-")
-            {
-                result = Subtract(parsedNumberOne, parsedNumberTwo);
-            }
+            //if (operation == "+")
+            //{
+            //    result = Add(parsedNumberOne, parsedNumberTwo);
+            //}
 
-            else if (operation == "*")
-            {
-                result = Multiply(parsedNumberOne, parsedNumberTwo);
-            }
+            //else if (operation == "-")
+            //{
+            //    result = Subtract(parsedNumberOne, parsedNumberTwo);
+            //}
 
-            else if (operation == "/")
-            {
-                result = Divide(parsedNumberOne, parsedNumberTwo);
-            }
+            //else if (operation == "*")
+            //{
+            //    result = Multiply(parsedNumberOne, parsedNumberTwo);
+            //}
 
-            else
-            {
-                Console.WriteLine("Podaj poprawny znak!");
-            }
+            //else if (operation == "/")
+            //{
+            //    result = Divide(parsedNumberOne, parsedNumberTwo);
+            //}
+
+            //else
+            //{
+            //    Console.WriteLine("Podaj poprawny znak!");
+            //}
 
             Console.WriteLine($"Wynik działania to: {result}");
             Console.WriteLine("Kliknij dowolny przycisk, aby zakończyć...");
