@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Kalkulator
@@ -17,17 +18,34 @@ namespace Kalkulator
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            Console.WriteLine("Calc");
+            //for(int j=0;j<100;j++)
+            //{
+            //    Console.WriteLine(j);
+            //}
+            bool isRunning = true;
 
-            int parsedNumberOne = GetValueFromUser("Wprowadź liczbę a: ");
-            int parsedNumberTwo = GetValueFromUser("Wprowadź liczbę b: ");
-            Console.WriteLine("Wprowadź symbol: ");
-            string operation = Console.ReadLine();
-            double finalResult = GetResultValue(parsedNumberOne, parsedNumberTwo, operation);
+            while (isRunning)
+            {
+                Console.WriteLine("Calc");
 
-            Console.WriteLine($"Wynik działania to: {finalResult}");
-            Console.WriteLine("Kliknij dowolny przycisk, aby zakończyć...");
-            Console.ReadKey();
+                int parsedNumberOne = GetValueFromUser("Wprowadź liczbę a: ");
+                int parsedNumberTwo = GetValueFromUser("Wprowadź liczbę b: ");
+                Console.WriteLine("Wprowadź symbol: ");
+                string operation = Console.ReadLine();
+                double finalResult = GetResultValue(parsedNumberOne, parsedNumberTwo, operation);
+
+                Console.WriteLine($"Wynik działania to: {finalResult}");
+                Console.WriteLine("Kliknij przycisk Q, aby zakończyć...");
+                string closingOperation = Console.ReadLine();
+
+                if (closingOperation == "q") 
+                {
+                    Console.WriteLine("Zamykam aplikację.");
+                    //Console.ReadKey();
+                    Thread.Sleep(1500);
+                    return;
+                }
+            }
         }
 
         /// <summary>
