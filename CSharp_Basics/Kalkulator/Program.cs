@@ -40,41 +40,48 @@ namespace Kalkulator
                 case "-":
                     result = Subtract(parsedNumberOne, parsedNumberTwo);
                     break;
+                case "x":
                 case "*":
                     result = Multiply(parsedNumberOne, parsedNumberTwo);
                     break;
                 case "/":
-                    result = Divide(parsedNumberOne, parsedNumberTwo);
-                    break;
+                    if (parsedNumberTwo != 0)
+                    {
+                        result = Divide(parsedNumberOne, parsedNumberTwo);
+                        break;
+                    }
+                    else
+                        Console.WriteLine("Nie dziel przez zero!");
+                        break;                   
                 default:
                     Console.WriteLine("Podaj poprawny znak!");
                     break;
             }
 
-            //if (operation == "+")
-            //{
-            //    result = Add(parsedNumberOne, parsedNumberTwo);
-            //}
+            ////if (operation == "+")
+            ////{
+            ////    result = Add(parsedNumberOne, parsedNumberTwo);
+            ////}
 
-            //else if (operation == "-")
-            //{
-            //    result = Subtract(parsedNumberOne, parsedNumberTwo);
-            //}
+            ////else if (operation == "-")
+            ////{
+            ////    result = Subtract(parsedNumberOne, parsedNumberTwo);
+            ////}
 
-            //else if (operation == "*")
-            //{
-            //    result = Multiply(parsedNumberOne, parsedNumberTwo);
-            //}
+            ////else if (operation == "*")
+            ////{
+            ////    result = Multiply(parsedNumberOne, parsedNumberTwo);
+            ////}
 
-            //else if (operation == "/")
-            //{
-            //    result = Divide(parsedNumberOne, parsedNumberTwo);
-            //}
+            ////else if (operation == "/")
+            ////{
+            ////    result = Divide(parsedNumberOne, parsedNumberTwo);
+            ////}
 
-            //else
-            //{
-            //    Console.WriteLine("Podaj poprawny znak!");
-            //}
+            ////else
+            ////{
+            ////    Console.WriteLine("Podaj poprawny znak!");
+            ////}
 
             Console.WriteLine($"Wynik działania to: {result}");
             Console.WriteLine("Kliknij dowolny przycisk, aby zakończyć...");
