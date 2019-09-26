@@ -27,7 +27,6 @@ namespace Kalkulator
             while (isRunning)
             {
                 Console.WriteLine("Calc");
-
                 int parsedNumberOne = GetValueFromUser("Wprowadź liczbę a: ");
                 int parsedNumberTwo = GetValueFromUser("Wprowadź liczbę b: ");
                 Console.WriteLine("Wprowadź symbol: ");
@@ -41,7 +40,7 @@ namespace Kalkulator
                 if (closingOperation == "q") 
                 {
                     Console.WriteLine("Zamykam aplikację.");
-                    //Console.ReadKey();
+                    ////Console.ReadKey();
                     Thread.Sleep(1500);
                     return;
                 }
@@ -55,12 +54,17 @@ namespace Kalkulator
         /// <returns></returns>
         public static int GetValueFromUser(string message)
         {
-            Console.WriteLine(message);
-            string valueFromUser = Console.ReadLine();
+            bool parsed = false;
             int parsedValueFromUser = 0;
-            if (!int.TryParse(valueFromUser, out parsedValueFromUser))
+            while (!parsed)
             {
-                Console.WriteLine($"Nie znana wartość, używamy wartości domyślnej {parsedValueFromUser}");
+                Console.WriteLine(message);
+                string valueFromUser = Console.ReadLine();                
+                parsed = int.TryParse(valueFromUser, out parsedValueFromUser);
+                if (!parsed)
+                {
+                    Console.WriteLine($"Nie znana wartość, użyj poprawnej wartości, a nie {parsedValueFromUser}");
+                }
             }
 
             return parsedValueFromUser;
