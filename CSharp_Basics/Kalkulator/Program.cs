@@ -21,54 +21,71 @@ namespace Kalkulator
 
             int parsedNumberOne = GetValueFromUser("Wprowadź liczbę a: ");
             int parsedNumberTwo = GetValueFromUser("Wprowadź liczbę b: ");
-
             Console.WriteLine("Wprowadź symbol: ");
             string operation = Console.ReadLine();
+            double finalResult = GetResultValue(parsedNumberOne, parsedNumberTwo, operation);
 
+            Console.WriteLine($"Wynik działania to: {finalResult}");
+            Console.WriteLine("Kliknij dowolny przycisk, aby zakończyć...");
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Get both values from user
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public static int GetValueFromUser(string message)
+        {
+            Console.WriteLine(message);
+            string valueFromUser = Console.ReadLine();
+            int parsedValueFromUser = 0;
+            if (!int.TryParse(valueFromUser, out parsedValueFromUser))
+            {
+                Console.WriteLine($"Nie znana wartość, używamy wartości domyślnej {parsedValueFromUser}");
+            }
+
+            return parsedValueFromUser;
+        }
+
+        /// <summary>
+        /// Method doing all the math
+        /// </summary>
+        /// <param name="numberOne"></param>
+        /// <param name="numberTwo"></param>
+        /// <param name="operation"></param>
+        /// <returns></returns>
+        public static double GetResultValue(int numberOne, int numberTwo, string operation)
+        {
             double result = 0;
 
             switch (operation)
             {
                 case "+":
-                    result = Add(parsedNumberOne, parsedNumberTwo);
+                    result = Add(numberOne, numberTwo);
                     break;
                 case "-":
-                    result = Subtract(parsedNumberOne, parsedNumberTwo);
+                    result = Subtract(numberOne, numberTwo);
                     break;
                 case "x":
                 case "*":
-                    result = Multiply(parsedNumberOne, parsedNumberTwo);
+                    result = Multiply(numberOne, numberTwo);
                     break;
                 case "/":
-                    if (parsedNumberTwo != 0)
+                    if (numberTwo != 0)
                     {
-                        result = Divide(parsedNumberOne, parsedNumberTwo);
+                        result = Divide(numberOne, numberTwo);
                         break;
                     }
                     else
                         Console.WriteLine("Nie dziel przez zero!");
-                        break;                   
+                    break;
                 default:
                     Console.WriteLine("Podaj poprawny znak!");
                     break;
             }
 
-            Console.WriteLine($"Wynik działania to: {result}");
-            Console.WriteLine("Kliknij dowolny przycisk, aby zakończyć...");
-            Console.ReadKey();
-
-        }
-
-        public static int GetValueFromUser(string message)
-        {
-            Console.WriteLine(message);
-            string number = Console.ReadLine();
-            int parsedNumber = 0;
-            if (!int.TryParse(number, out parsedNumber))
-            {
-                Console.WriteLine($"Nie znana wartość, używamy wartości domyślnej {parsedNumber}");
-            }
-            return parsedNumber;
+            return result;
         }
 
         /// <summary>
