@@ -33,15 +33,14 @@ namespace SeleniumTests
             //sendButton.Click();
             sut.ClickSubmitButton();
 
-            WebDriverWait waitDriver = new WebDriverWait(driver, new TimeSpan(0, 0, 15));
-            var errorMessage = waitDriver.Until(ExpectedConditions.ElementExists(By.CssSelector(".alert-danger li")));
+  
             //var errorMessage = driver.FindElement(By.CssSelector("alert-danger li"));
 
             //string errorString = errorMessage.ToString();
             //StringAssert.Contains("Invalid email address.", errorString);
 
-            Assert.IsTrue(errorMessage.Displayed, "Error message wasn't displayed to user.");
-            Assert.That(errorMessage.Text, Contains.Substring("Invalid email address."));
+            Assert.IsTrue(sut.IsErrorMessageDisplayed(), "Error message wasn't displayed to user.");
+            Assert.That(sut.GetErrorMessageTest(), Contains.Substring("Invalid email address."));
         }
     }
 }
