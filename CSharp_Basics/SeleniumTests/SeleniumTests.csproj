@@ -54,9 +54,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoriesTest.cs" />
     <Compile Include="ContactUsTests.cs" />
+    <Compile Include="HomeTests.cs" />
     <Compile Include="Pages\ContactUsPage.cs" />
+    <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\WomenCategoryPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>
