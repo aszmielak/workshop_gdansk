@@ -11,7 +11,7 @@ namespace SeleniumTests
 {
     public class TestBase
     {
-        public IWebDriver driver;
+        protected IWebDriver driver; //protected - dostępne dla dzieci, a nie dla innych class
 
         [SetUp]
         public void Setup()
