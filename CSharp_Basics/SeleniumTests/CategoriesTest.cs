@@ -6,21 +6,8 @@ using OpenQA.Selenium.Chrome;
 namespace SeleniumTests
 {
     [TestFixture]
-    public class UnitTest1
+    public class CategoriesTest : TestBase  //zadziedziczone
     {
-        IWebDriver driver;
-
-        [SetUp]
-        public void Setup()
-        {
-            ////konstruktor klasy drivera
-            driver = new ChromeDriver();
-            ////gra do zabawy css selectorów: https://flukeout.github.io/#
-            ////wtyczka do Chroma "Web Developer" koło zebate ikonka
-            var waitTime = new TimeSpan(0, 0, 1);
-            driver.Manage().Timeouts().ImplicitWait = waitTime;
-        }
-
         [Test]
         public void FirstTest()  ////metoda
         {
@@ -57,12 +44,6 @@ namespace SeleniumTests
             string text = productCounter.Text;
 
             StringAssert.Contains("1", text);
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-           driver.Quit();
         }
     }
 }
