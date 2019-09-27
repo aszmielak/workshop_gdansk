@@ -31,6 +31,7 @@ namespace SeleniumTests.Pages
 
         public void GoToPage()
         {
+            
             driver.Navigate().GoToUrl("http://automationpractice.com/index.php?controller=contact");
         }
 
