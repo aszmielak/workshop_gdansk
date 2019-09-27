@@ -29,8 +29,10 @@ namespace SeleniumTests
             categoryHeader.Click();
             var productCounter = driver.FindElement(By.CssSelector(".heading-counter"));
             string text = productCounter.Text;
+            var webElements = driver.FindElements(By.CssSelector("div.product-container"));
 
-            StringAssert.Contains("5", text);
+            string actualElementCount = webElements.Count.ToString();
+            StringAssert.Contains(actualElementCount, text);
         }
 
         [Test]
